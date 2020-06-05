@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/pure-min.css"
+          integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<div class="pure-menu pure-menu-horizontal pure-menu-scrollable">-->
+<!--    <a href="#" class="pure-menu-link pure-menu-heading">Yahoo</a>-->
+<!--    <ul class="pure-menu-list">-->
+<!--        <li class="pure-menu-item">-->
+<!--            <a href="#" class="pure-menu-link">Home</a>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</div>-->
+
+<form class="pure-form" method="GET" action="/identify/update">
+    <fieldset class="pure-group">
+        <label for="stacked-id">身份证</label>
+        <input type="text" name="id" id="stacked-id" placeholder="32xxxx"/>
+        <label for="stacked-name">姓名</label>
+        <input type="text" name="name" id="stacked-name" placeholder="张三"/>
+        <button type="submit" class="pure-button pure-button-primary">Update</button>
+    </fieldset>
+</form>
+</body>
+</html>

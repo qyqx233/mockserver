@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/vue.js"></script>
+    <script src="/static/public.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        <label>category</label>
+        <input v-model="category">
+    </div>
+    <div style="display: flex; margin-top: 6px;">
+        <textarea style="height: 100px; width: 800px; background-color:silver; height: 600px;" v-model="content"></textarea>
+        <div style="height: 100px; width: 10px"></div>
+        <textarea style="height: 100px; width: 800px; background-color: silver; height: 600px;" readonly v-model="content1"></textarea>
+    </div>
+    <div>
+        <button v-on:click="submitClick">submit</button>
+    </div>
+    </div>
+    <script>
+
+        function postData(url, data) {
+            // Default options are marked with *
+            return fetch(url, {
+                body: JSON.stringify(data), // must match 'Content-Type' header
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, same-origin, *omit
+                headers: {
+                    'content-type': 'application/json'
+                },
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, cors, *same-origin
+                redirect: 'follow', // manual, *follow, error
+                referrer: 'no-referrer', // *client, no-referrer
+            })
+                .then(response => response.json()) // parses response to JSON
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                category: '',
+                name: '',
+                content: '请求内容',
+                content1: '',
+            },
+            mounted() {
+                this.category = localStorage.getItem('category')
+            },
+            methods: {
+                submitClick: function (event) {
+                    postData('/mock', { content: this.content, category: this.category })
+                        .then((resp) => {
+                            this.content1 = resp.data.content
+                            localStorage.setItem('category', this.category)
+                        })
+                },
+            }
+        })
+    </script>
+    </body>
+    
+    </html>

@@ -1,0 +1,1 @@
+mvn deploy:deploy-file -DgroupId=javax -DartifactId=connector -Dversion="1.0" -Dpackaging=jar -Durl=file://C:\Users\ISSUSER\.m2\repository -Dfile="connector-1.0.jar" -DrepositoryId=localRepository -e·

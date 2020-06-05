@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <div>
+    {{ abc }}
+  </div>
+    <table>
+        <tr>
+            <td><label>category</label></td>
+            <td><input v-model="category"></td>
+        </tr>
+        <tr>
+            <td><label>name</label></td>
+            <td><input v-model="name"></td>
+        </tr>
+    </table>
+    <pre>{{ xx }} </pre>
+
+    <div>
+        <textarea rows=40 cols="200" v-model="content"></textarea>
+    </div>
+    <div>
+        <button v-on:click="queryClick">query</button>
+        <button>submit</button>
+    </div>
+</div>
+<script>
+
+  function postData(url, data) {
+    // Default options are marked with *
+    return fetch(url, {
+      body: JSON.stringify(data), // must match 'Content-Type' header
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, same-origin, *omit
+      headers: {
+        'user-agent': 'Mozilla/4.0 MDN Example',
+        'content-type': 'application/json'
+      },
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, cors, *same-origin
+      redirect: 'follow', // manual, *follow, error
+      referrer: 'no-referrer', // *client, no-referrer
+    })
+      .then(response => response.json()) // parses response to JSON
+  }
+  var app = new Vue({
+    el: '#app',
+    data: {
+      category: '',
+      name: '',
+      content: '',
+      abc: 'abc',
+      xx: 0,
+    },
+    methods: {
+      queryClick: function (event) {
+        postData('/script/query', {content: this.content, name: this.name, category: this.category})
+        // postData('http://example.com/answer', {answer: 42})
+        .then((resp) => {console.log(resp)})
+        .catch((e) => {console.log(e)})
+      }
+    }
+  })
+</script>
+</body>
+
+</html>

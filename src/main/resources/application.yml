@@ -1,0 +1,28 @@
+db:
+  type: sqlite3
+  url: "jdbc:sqlite:identify.sqlite3"
+
+adapters:
+  identify:
+    type: "mq"
+    hostName: "127.0.0.1"
+    port: 12
+    qmgrName: "mqm"
+    ccsid: 819
+    channel: "channel"
+
+  http1:
+    type: "http"
+    hostName: "127.0.0.1"
+    port: 4399
+
+services:
+  identify:
+    messageHandle: "me.ifling.service.Identify"
+
+  http1:
+    messageHandle: "me.ifling.service.GeneralService"
+
+
+#  hello-world: !!map
+#    type: http

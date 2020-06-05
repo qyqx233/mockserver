@@ -1,0 +1,47 @@
+package com.softstone.service;
+
+import com.softstone.Context;
+import com.softstone.ServiceHandler;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Identify implements ServiceHandler {
+    private String name;
+
+    public Identify(String name) {
+        this.name = name;
+    }
+
+    public void prepareDB(Connection conn) {
+//        String sql = "CREATE TABLE IF NOT EXISTS identify_map (\n"
+//                + "	id varchar(18) PRIMARY KEY,\n"
+//                + "	name varchar(100) NOT NULL,\n"
+//                + "	photo varchar(1000000)\n"
+//                + ");";
+//        try (Statement stmt = conn.createStatement()) {
+//            // create a new table
+//            stmt.execute(sql);
+//            conn.commit();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            try {
+//                conn.rollback();
+//            } catch (SQLException throwables) {
+//                throwables.printStackTrace();
+//            }
+//        }
+    }
+
+    @Override
+    public String handle(Context ctx, String message) {
+        return null;
+    }
+
+
+    @Override
+    public void parseRcv(Context ctx, String message) {
+        ctx.url = "";
+    }
+}

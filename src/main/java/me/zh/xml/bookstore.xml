@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+    <id>100</id>
+    <book id="book1">
+        <name>Java 核心技术</name>
+        <author>Cornell </author>
+        <year>2014</year>
+        <price>89</price>
+    </book>
+    <book id="book2">
+        <name>深入浅出MyBatis</name>
+        <author>杨开振</author>
+        <year>2016</year>
+        <price>69</price>
+    </book>
+    <book id="book3">
+        <name>Java RESTful Web Service实战</name>
+        <author>韩陆</author>
+        <year>2016</year>
+        <price>59</price>
+    </book>
+</bookstore>

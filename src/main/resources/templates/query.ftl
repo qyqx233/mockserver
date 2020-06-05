@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CFX>
+    <HEAD>
+        <VER>1.0</VER>
+        <SRC>${des}</SRC>
+        <DES>${src}</DES>
+        <APP>${app}</APP>
+        <MsgNo>${msgNo}</MsgNo>
+        <MsgID>${msgID}</MsgID>
+        <MsgRef>${msgRef}</MsgRef>
+        <WorkDate>${workDate}</WorkDate>
+        <Reserve></Reserve>
+    </HEAD>
+    <MSG>
+        <SingleCheckResultHead0002>
+            <EntrustDate>${entrustDate}</EntrustDate>
+        </SingleCheckResultHead0002>
+        <SingleCheckResultMessage0002>
+            <CheckResult>${checkResult}</CheckResult>
+            <IssueOffice>此项暂不返回结果</IssueOffice>
+            <Name>${name}</Name>
+            <ID>${id}</ID>
+            <Photo></Photo>
+        </SingleCheckResultMessage0002>
+    </MSG>
+</CFX>
